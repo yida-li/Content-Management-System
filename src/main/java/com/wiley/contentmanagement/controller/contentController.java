@@ -31,6 +31,12 @@ public class contentController {
 
         return "login";
        }
+                
+       @GetMapping("editpage")
+        public String editPage(Model model) {
+
+        return "editpage";
+       }
         
        @GetMapping("manage")
         public String displayManage(Model model) {
