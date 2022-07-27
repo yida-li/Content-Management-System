@@ -4,12 +4,20 @@
  */
 package com.wiley.contentmanagement.model;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 /**
  *
  * @author erres
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Article {
 
     private int aid;
@@ -20,61 +28,6 @@ public class Article {
     private LocalDateTime updateTime;
     private LocalDateTime expireTime;
 
-    public int getAid() {
-        return aid;
-    }
-
-    public void setAid(int aid) {
-        this.aid = aid;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public int isDisplay() {
-        return display;
-    }
-
-    public void setDisplay(int display) {
-        this.display = display;
-    }
-
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-    }
-
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public LocalDateTime getExpireTime() {
-        return expireTime;
-    }
-
-    public void setExpireTime(LocalDateTime expireTime) {
-        this.expireTime = expireTime;
-    }
 
     @Override
     public boolean equals(Object obj) {

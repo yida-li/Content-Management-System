@@ -18,7 +18,7 @@ import org.springframework.stereotype.Repository;
 public class UserDaoDB implements UserDao {
 
     @Autowired
-    JdbcTemplate jdbc;
+    private JdbcTemplate jdbc;
 
     @Override
     public User getUserById(int uid) {

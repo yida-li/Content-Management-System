@@ -4,48 +4,24 @@
  */
 package com.wiley.contentmanagement.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  *
  * @author erres
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     private int uid;
-    private String uName;
+    private String name;
     private String password;
     private int role;
 
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
-    }
-
-    public String getuName() {
-        return uName;
-    }
-
-    public void setuName(String uName) {
-        this.uName = uName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
-    }
 
     @Override
     public boolean equals(Object obj) {
