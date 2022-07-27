@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Draft {
     private int did;
-    private int uid;
+    private User user;
     private int aid;
     private String title;
     private String content;

@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ArticleTag {
     private int atid;
-    private int aid;
-    private int tid;
+    private Article article;
+    private Tag tag;
 }
