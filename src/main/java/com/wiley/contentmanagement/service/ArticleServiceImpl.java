@@ -24,7 +24,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article getArticleById(int aid) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return aDao.getArticleById(aid);
     }
 
     @Override

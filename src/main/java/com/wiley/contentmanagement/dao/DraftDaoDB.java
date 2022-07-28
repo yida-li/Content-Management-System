@@ -44,10 +44,10 @@ public class DraftDaoDB implements DraftDao{
     @Override
     public Draft getDraftById(int did) {
         final String GET_DRAFT_BY_ID = "select * " +
-                                        "from draft d" +
-                                        "join user u" +
-                                        "on d.`uid` = u.`uid`" +
-                                        "where did =?";
+                                        " from draft d" +
+                                        " join user u" +
+                                        " on d.`uid` = u.`uid`" +
+                                        " where did =?";
         try{
             return jdbc.queryForObject(GET_DRAFT_BY_ID,new DraftMapper(),did);
         } catch (EmptyResultDataAccessException | DataIntegrityViolationException e) {
@@ -58,9 +58,9 @@ public class DraftDaoDB implements DraftDao{
     @Override
     public List<Draft> getAllDrafts() {
         final String GET_ALL_DRAFTS = "select * " +
-                "from draft d" +
-                "join user u" +
-                "on d.`uid` = u.`uid`";
+                " from draft d" +
+                " join user u" +
+                " on d.`uid` = u.`uid`";
         try{
             return jdbc.query(GET_ALL_DRAFTS,new DraftMapper());
         }catch (EmptyResultDataAccessException | DataIntegrityViolationException e) {
