@@ -7,12 +7,13 @@ package com.wiley.contentmanagement.service;
 import com.wiley.contentmanagement.model.Article;
 import java.util.List;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author erres
  */
-@Component
+@Service
 public class ArticleServiceImpl implements ArticleService {
 
     @Override

@@ -4,30 +4,20 @@
  */
 package com.wiley.contentmanagement.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 /**
  *
  * @author erres
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Tag {
 
     private int tid;
     private String name;
-
-    public int getTid() {
-        return tid;
-    }
-
-    public void setTid(int tid) {
-        this.tid = tid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public boolean equals(Object obj) {
