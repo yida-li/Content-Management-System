@@ -1,6 +1,7 @@
 package com.wiley.contentmanagement.dao;
 
 import com.wiley.contentmanagement.model.Article;
+import com.wiley.contentmanagement.model.Draft;
 import com.wiley.contentmanagement.model.ArticleTag;
 import com.wiley.contentmanagement.model.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

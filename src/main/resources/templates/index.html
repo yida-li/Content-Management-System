@@ -104,8 +104,9 @@
         <li><a class="active" href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li><a href="/page"><span class="glyphicon glyphicon-pencil"></span> WriteBlog</a></li>
         <li><a href="/manage"><span class="glyphicon glyphicon-list-alt"></span> BlogManagement</a></li>
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login/Signup</a></li>
+        <!--li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login/Signup</a></li-->
         <li><a href="/editpage"><span class="glyphicon glyphicon-list-alt"></span> Edit</a></li>
+
     </ul>
     <!--end of navigation-->
 
@@ -120,7 +121,7 @@
                     </div>
                     <div class="blog-time" th:text="'last update time : '+${blog.updateTime}"></div>
                 </div>
-                <div class="blog-content">2022-07-28 13:42:30.192  INFO 17288 --- [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+                <div class="blog-content " th:text="${blog.content}">2022-07-28 13:42:30.192  INFO 17288 --- [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
                     2022-07-28 13:42:30.355  INFO 17288 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
                     2022-07-28 13:42:30.388  INFO 17288 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
                     2022-07-28 13:42:30.401  INFO 17288 --- [  restartedMain] c.w.c.ContentmanagementApplication       : Started ContentmanagementApplication in 2.917 seconds (JVM running for 4.474)
