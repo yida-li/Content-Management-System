@@ -3,6 +3,9 @@ package com.wiley.contentmanagement.dao;
 import com.wiley.contentmanagement.model.Article;
 import com.wiley.contentmanagement.model.ArticleTag;
 import com.wiley.contentmanagement.model.Tag;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -10,16 +13,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+@Repository
+public class ArticleTagDaoDB implements ArticleTagDao {
 
 @Repository
 public class ArticleTagDaoDB implements ArticleTagDao{
     @Autowired
     JdbcTemplate jdbc;
 
-    public final class ArticleTagMapper implements RowMapper<ArticleTag>{
+    public final class ArticleTagMapper implements RowMapper<ArticleTag> {
 
         @Override
         public ArticleTag mapRow(ResultSet rs, int index) throws SQLException {
@@ -31,8 +33,7 @@ public class ArticleTagDaoDB implements ArticleTagDao{
                     rs.getInt("display"),
                     rs.getTimestamp("createTime").toLocalDateTime(),
                     rs.getTimestamp("updateTime").toLocalDateTime(),
-                    rs.getTimestamp("expireTime")==null?null:rs.getTimestamp("expireTime").toLocalDateTime()
-
+                    rs.getTimestamp("expireTime") == null ? null : rs.getTimestamp("expireTime").toLocalDateTime()
             ));
             articleTag.setTag(new Tag(rs.getInt("tid"),
                     rs.getString("name")));
@@ -75,13 +76,13 @@ public class ArticleTagDaoDB implements ArticleTagDao{
     @Override
     public ArticleTag addArtricleTag(ArticleTag articleTag) {
         final String ADD_AT = "insert into articletag(aid,tid) values(?,?)";
-        try{
+        try {
             jdbc.update(ADD_AT,
                     articleTag.getArticle().getAid(),
                     articleTag.getTag().getTid());
             articleTag.setAtid(getLastIncrementIndex());
             return articleTag;
-        }catch (DataIntegrityViolationException e) {
+        } catch (DataIntegrityViolationException e) {
             return null;
         }
     }
@@ -94,11 +95,11 @@ public class ArticleTagDaoDB implements ArticleTagDao{
     @Override
     public void updateArticleTag(ArticleTag articleTag) {
         final String UPDATE_AT = "update articletag set aid=?,tid=? where atid=?";
-        try{
-            jdbc.update(UPDATE_AT,articleTag.getArticle().getAid(),
+        try {
+            jdbc.update(UPDATE_AT, articleTag.getArticle().getAid(),
                     articleTag.getTag().getTid(),
                     articleTag.getAtid());
-        }catch (DataIntegrityViolationException e) {
+        } catch (DataIntegrityViolationException e) {
 
         }
     }
@@ -106,9 +107,9 @@ public class ArticleTagDaoDB implements ArticleTagDao{
     @Override
     public void deleteArticleTagById(int atid) {
         final String DELETE_AT = "delete from articletag where atid=?";
-        try{
-            jdbc.update(DELETE_AT,atid);
-        }catch (DataIntegrityViolationException e) {
+        try {
+            jdbc.update(DELETE_AT, atid);
+        } catch (DataIntegrityViolationException e) {
         }
     }
 }

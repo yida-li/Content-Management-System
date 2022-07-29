@@ -22,4 +22,6 @@ public interface ArticleService {
     void updateArticle(Article article);
 
     void deleteArticleById(int aid);
+
+    public void addTag(Article a, int tid);
 }

@@ -7,9 +7,7 @@ package com.wiley.contentmanagement.service;
 import com.wiley.contentmanagement.dao.ArticleDao;
 import com.wiley.contentmanagement.model.Article;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,21 +18,21 @@ import org.springframework.stereotype.Service;
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
-    ArticleDao aDao;
+    ArticleDao articleDao;
 
     @Override
     public Article getArticleById(int aid) {
-        return aDao.getArticleById(aid);
+        return articleDao.getArticleById(aid);
     }
 
     @Override
     public List<Article> getAllArticles() {
-        return aDao.getAllArticles();
+        return articleDao.getAllArticles();
     }
 
     @Override
     public Article addArtricle(Article article) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return articleDao.addArtricle(article);
     }
 
     @Override
@@ -45,6 +43,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public void deleteArticleById(int aid) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void addTag(Article a, int tid) {
+        articleDao.addTag(a.getAid(), tid);
     }
 
 }
