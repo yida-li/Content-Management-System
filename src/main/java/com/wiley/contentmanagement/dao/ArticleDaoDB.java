@@ -25,11 +25,6 @@ public class ArticleDaoDB implements ArticleDao {
     @Autowired
     JdbcTemplate jdbc;
 
-    @Override
-    public void addTag(int aid, int tid) {
-        jdbc.update("insert into articleTag (aid,tid) values (?,?)", aid, tid);
-    }
-
 //    private final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     public final class ArticleMapper implements RowMapper<Article> {
 

@@ -5,7 +5,9 @@
 package com.wiley.contentmanagement.service;
 
 import com.wiley.contentmanagement.dao.ArticleDao;
+import com.wiley.contentmanagement.dao.ArticleTagDao;
 import com.wiley.contentmanagement.model.Article;
+import com.wiley.contentmanagement.model.ArticleTag;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,9 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
     ArticleDao articleDao;
+
+    @Autowired
+    ArticleTagDao articleTagDao;
 
     @Override
     public Article getArticleById(int aid) {
@@ -46,8 +51,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void addTag(Article a, int tid) {
-        articleDao.addTag(a.getAid(), tid);
+    public void addTag(ArticleTag articleTag) {
+        articleTagDao.addArtricleTag(articleTag);
     }
 
 }

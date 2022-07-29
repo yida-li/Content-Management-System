@@ -23,5 +23,4 @@ public interface ArticleDao {
 
     void deleteArticleById(int aid);
 
-    public void addTag(int aid, int tid);
 }

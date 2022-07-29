@@ -22,7 +22,7 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public Tag getTagById(int tid) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return tagDao.getTagById(tid);
     }
 
     @Override

@@ -5,10 +5,10 @@
 package com.wiley.contentmanagement.controller;
 
 import com.wiley.contentmanagement.model.Article;
+import com.wiley.contentmanagement.model.ArticleTag;
 import com.wiley.contentmanagement.service.ArticleService;
 import com.wiley.contentmanagement.service.TagService;
 import java.time.LocalDateTime;
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,16 +55,21 @@ public class contentController {
     }
 
     @PostMapping("/tinytxt")
-    public String writeBlog(HttpServletRequest request) {
+    public String writeBlog(String tinyContent, Integer[] tid) {
 
         Article a = new Article();
-        a.setContent(request.getParameter("tinyContent"));
+        a.setContent(tinyContent);
         a.setCreateTime(LocalDateTime.now());
 
         articleService.addArtricle(a);
 
-        for (String tid : request.getParameterValues("tid")) {
-            articleService.addTag(a, Integer.parseInt(tid));
+        if (tid != null) {
+            for (Integer t : tid) {
+                ArticleTag at = new ArticleTag();
+                at.setArticle(a);
+                at.setTag(tagService.getTagById(t));
+                articleService.addTag(at);
+            }
         }
 
         return "redirect:/";

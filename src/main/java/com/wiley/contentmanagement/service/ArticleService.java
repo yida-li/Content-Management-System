@@ -5,6 +5,7 @@
 package com.wiley.contentmanagement.service;
 
 import com.wiley.contentmanagement.model.Article;
+import com.wiley.contentmanagement.model.ArticleTag;
 import java.util.List;
 
 /**
@@ -23,5 +24,5 @@ public interface ArticleService {
 
     void deleteArticleById(int aid);
 
-    public void addTag(Article a, int tid);
+    public void addTag(ArticleTag articleTag);
 }
