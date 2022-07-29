@@ -16,8 +16,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ArticleTagDaoDB implements ArticleTagDao {
 
-@Repository
-public class ArticleTagDaoDB implements ArticleTagDao{
     @Autowired
     JdbcTemplate jdbc;
 
@@ -43,15 +41,15 @@ public class ArticleTagDaoDB implements ArticleTagDao{
 
     @Override
     public ArticleTag getArticleTagById(int atid) {
-        final String GET_AT_BY_ID = "select * " +
-                                    " from articletag at" +
-                                    " join article a" +
-                                    " on at.`aid`=a.`aid`" +
-                                    " join tag t" +
-                                    " on at.`tid`=t.`tid`" +
-                                    " where atid=?";
-        try{
-            return jdbc.queryForObject(GET_AT_BY_ID,new ArticleTagMapper(),atid);
+        final String GET_AT_BY_ID = "select * "
+                + " from articletag at"
+                + " join article a"
+                + " on at.`aid`=a.`aid`"
+                + " join tag t"
+                + " on at.`tid`=t.`tid`"
+                + " where atid=?";
+        try {
+            return jdbc.queryForObject(GET_AT_BY_ID, new ArticleTagMapper(), atid);
         } catch (EmptyResultDataAccessException | DataIntegrityViolationException e) {
             return null;
         }
@@ -60,14 +58,14 @@ public class ArticleTagDaoDB implements ArticleTagDao{
 
     @Override
     public List<ArticleTag> getAllArticleTags() {
-        final String GET_ALL = "select * " +
-                " from articletag at" +
-                " join article a" +
-                " on at.`aid`=a.`aid`" +
-                " join tag t" +
-                " on at.`tid`=t.`tid`";
-        try{
-            return jdbc.query(GET_ALL,new ArticleTagMapper());
+        final String GET_ALL = "select * "
+                + " from articletag at"
+                + " join article a"
+                + " on at.`aid`=a.`aid`"
+                + " join tag t"
+                + " on at.`tid`=t.`tid`";
+        try {
+            return jdbc.query(GET_ALL, new ArticleTagMapper());
         } catch (EmptyResultDataAccessException | DataIntegrityViolationException e) {
             return null;
         }
