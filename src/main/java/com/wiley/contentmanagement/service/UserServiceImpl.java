@@ -4,8 +4,12 @@
  */
 package com.wiley.contentmanagement.service;
 
+import com.wiley.contentmanagement.dao.UserDao;
 import com.wiley.contentmanagement.model.User;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,6 +18,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class UserServiceImpl implements UserService {
+    @Autowired
+    UserDao uDao;
 
     @Override
     public User getUserById(int uid) {
@@ -21,8 +27,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> getUserByName(String name) {
+        return uDao.getAllUsers()
+                .stream()
+                .filter(u->u.getName().equals(name))
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public List<User> getAllUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return uDao.getAllUsers();
     }
 
     @Override
