@@ -26,7 +26,7 @@ public class tagController {
     }
 
     @PostMapping("/addTag")
-    public void addTag(HttpServletRequest req, Model model){
+    public String addTag(HttpServletRequest req, Model model){
         Enumeration<String> names = req.getParameterNames();
         HashMap<String,String[]> map = new HashMap<>();
         while (names.hasMoreElements()) {
@@ -41,6 +41,7 @@ public class tagController {
         tag.setName(map.get("name")[0]);
         tService.addTag(tag);
         model.addAttribute("tags",tService.getAllTags());
+        return "/tag.html";
     }
 
     @PostMapping("/editTag")
