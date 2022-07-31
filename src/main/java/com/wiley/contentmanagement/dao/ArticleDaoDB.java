@@ -35,8 +35,11 @@ public class ArticleDaoDB implements ArticleDao {
             article.setTitle(rs.getString("title"));
             article.setContent(rs.getString("content"));
             article.setDisplay(rs.getInt("display"));
-            article.setCreateTime(rs.getTimestamp("createTime").toLocalDateTime());
-            article.setUpdateTime(rs.getTimestamp("updateTime").toLocalDateTime());
+            
+            if (rs.getTimestamp("updateTime") != null) {
+                article.setUpdateTime(rs.getTimestamp("updateTime").toLocalDateTime());
+            }            
+            article.setCreateTime(rs.getTimestamp("createTime").toLocalDateTime());    
             if (rs.getTimestamp("expireTime") != null) {
                 article.setExpireTime(rs.getTimestamp("expireTime").toLocalDateTime());
             }

@@ -70,6 +70,9 @@ public class ArticleTagDaoDB implements ArticleTagDao {
             return null;
         }
     }
+    
+    
+    
 
     @Override
     public ArticleTag addArtricleTag(ArticleTag articleTag) {
@@ -84,6 +87,10 @@ public class ArticleTagDaoDB implements ArticleTagDao {
             return null;
         }
     }
+    
+    
+    
+    
 
     private int getLastIncrementIndex() {
         final String GET_LAST_INCREMENT_INDEX = "select @@identity";
