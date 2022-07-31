@@ -157,6 +157,7 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
       <a href="/tag">Tags</a>
       <a href="/login">Login/Signup</a>
       <a href="/editpage">Edit</a>
+      <a href="/manageBoss">Approval</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -174,6 +175,7 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
                                 <th>Blog ID</th>
                                 <th>Blog Title</th>
                                 <th>Hashtags/Details</th>
+                                <th>Date Posted</th>
                                 <th>Update Blog</th>
                                 <th>Delete Blog</th>
                             </tr>
@@ -182,21 +184,34 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
                             <tr th:each="blog : ${blogs}">
   
                                 <td th:text="${blog.aid}">blog ID</td>
-
                                 <td th:text="${blog.title}">blog Title</td>
+                                
                                 <td>
-                                  
-                                                                                     <div class="blog-tag" th:each="tag:${atmap[__${blog.aid}__]}">
+                                 
+                          <div class="blog-tag" th:each="tag:${atmap[__${blog.aid}__]}">
                         <div  th:text="${tag.name}">tag</div>
                     </div>
                               </td>
-                            <td>
-                                  <button type="button" class="btn btn-outline-info"><a href="#">Edit</a></button>
+                            <td th:text="${blog.createTime}">dddd</td>
+                              
+                              
+                                <td>
+                                
+                                <button type="button" class="btn btn-outline-info"><a href="#">Edit</a></button>
                                     
                                 </td>
                   
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                                 <td>  
-                                      <button type="button" class="btn btn-outline-danger"><a href="#">Delete</a></button>
+                                 <button type="button" class="btn btn-outline-danger"><a href="#">Delete</a></button>
                                  
                                 </td>
                             </tr>
@@ -204,12 +219,7 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
                     </table>
                 </div>
             </div>
-            <!-- set up a table to display our courses 
-            using the Thymeleaf th:each
-            include an Edit and Delete cell
-            placeholder for Details, which will be a link to a page that 
-            will list the full info for a Course
-            -->
+  
 
         
 

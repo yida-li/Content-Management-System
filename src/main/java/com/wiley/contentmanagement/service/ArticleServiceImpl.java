@@ -36,6 +36,12 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> getAllArticles() {
         return articleDao.getAllArticles();
     }
+    
+    @Override
+    public List<Article> getAllDrafts() {
+        return articleDao.getAllDraft();
+    }
+    
 
     @Override
     public Article addArtricle(Article article) {
@@ -49,7 +55,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void deleteArticleById(int aid) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       articleDao.deleteArticleById(aid);
     }
 
     @Override

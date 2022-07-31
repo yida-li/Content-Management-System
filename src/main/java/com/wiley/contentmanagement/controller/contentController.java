@@ -47,7 +47,7 @@ public class contentController {
 
     @GetMapping("/manage")
     public String manage(Model model) {
-                HashMap<Integer, List<Tag>> atmap = new HashMap<>();
+       HashMap<Integer, List<Tag>> atmap = new HashMap<>();
         List<Article> blogs = aService.getAllArticles();
 
         // get article tags by aid from atS
@@ -62,11 +62,29 @@ public class contentController {
         return "manage";
     }
 
+     @GetMapping("/manageBoss")
+    public String manageBoss(Model model) {
+       HashMap<Integer, List<Tag>> atmap = new HashMap<>();
+        List<Article> blogs = aService.getAllDrafts();
+
+        // get article tags by aid from atS
+        for(Article article : blogs){
+            int temp= article.getAid();
+            atmap.put(temp,atService.getArticleTagByAid(temp));
+        }
+
+        model.addAttribute("blogs",blogs);
+        model.addAttribute("atmap",atmap);
+        
+        return "manageBoss";
+    }
+    
+    
     
        @GetMapping("/tag")
     public String tag(Model model) {
-                       
-      
+                        HashMap<Integer, List<Tag>> atmap = new HashMap<>();
+        List<Article> blogs = aService.getAllArticles();
         
         List<Tag> tagList = tagService.getAllTags();
         
@@ -76,11 +94,15 @@ public class contentController {
             articleMap.put(tag.getTid(),atService.getArticlesByTid(tag.getTid()));
         }
         
-      
-       
+        // get article tags by aid from atS
+        
+        for(Article article : blogs){
+            int temp= article.getAid();
+            atmap.put(temp,atService.getArticleTagByAid(temp));
+        }
         model.addAttribute("articleMap",articleMap);
-       
-       
+        model.addAttribute("blogs",blogs);
+        model.addAttribute("atmap",atmap);
         model.addAttribute("tags", tagService.getAllTags());
         return "tag";
     }
@@ -92,10 +114,13 @@ public class contentController {
     }
 
     @PostMapping("/tinytxt")
-    public String writeBlog(String tinyContent, Integer[] tid) {
+    public String writeBlog(String title, String tag,String tinyContent, Integer[] tid) {
 
         Article a = new Article();
+      
+        a.setTitle(title);
         a.setContent(tinyContent);
+        
         a.setCreateTime(LocalDateTime.now());
 
         articleService.addArtricle(a);
