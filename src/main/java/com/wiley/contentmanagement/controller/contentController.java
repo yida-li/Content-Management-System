@@ -6,9 +6,13 @@ package com.wiley.contentmanagement.controller;
 
 import com.wiley.contentmanagement.model.Article;
 import com.wiley.contentmanagement.model.ArticleTag;
+import com.wiley.contentmanagement.model.Tag;
 import com.wiley.contentmanagement.service.ArticleService;
+import com.wiley.contentmanagement.service.ArticleTagService;
 import com.wiley.contentmanagement.service.TagService;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,17 +32,53 @@ public class contentController {
     @Autowired
     TagService tagService;
 
+    
+    @Autowired
+    ArticleService aService;
+
+    @Autowired
+    ArticleTagService atService;
+    
     @GetMapping("/page")
     public String page(Model model) {
-        model.addAttribute("tags", tagService.getAllTags());
+        
         return "page";
     }
 
     @GetMapping("/manage")
-    public String manage() {
+    public String manage(Model model) {
+                HashMap<Integer, List<Tag>> atmap = new HashMap<>();
+        List<Article> blogs = aService.getAllArticles();
+
+        // get article tags by aid from atS
+        for(Article article : blogs){
+            int temp= article.getAid();
+            atmap.put(temp,atService.getArticleTagByAid(temp));
+        }
+
+        model.addAttribute("blogs",blogs);
+        model.addAttribute("atmap",atmap);
+        
         return "manage";
     }
 
+    
+       @GetMapping("/tag")
+    public String tag(Model model) {
+                        HashMap<Integer, List<Tag>> atmap = new HashMap<>();
+        List<Article> blogs = aService.getAllArticles();
+
+        // get article tags by aid from atS
+        for(Article article : blogs){
+            int temp= article.getAid();
+            atmap.put(temp,atService.getArticleTagByAid(temp));
+        }
+
+        model.addAttribute("blogs",blogs);
+        model.addAttribute("atmap",atmap);
+        model.addAttribute("tags", tagService.getAllTags());
+        return "tag";
+    }
 
 
     @GetMapping("/editpage")
