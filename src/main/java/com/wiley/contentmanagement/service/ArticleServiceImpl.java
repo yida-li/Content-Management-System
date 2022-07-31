@@ -9,6 +9,8 @@ import com.wiley.contentmanagement.dao.ArticleTagDao;
 import com.wiley.contentmanagement.model.Article;
 import com.wiley.contentmanagement.model.ArticleTag;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,5 +56,16 @@ public class ArticleServiceImpl implements ArticleService {
     public void addTag(ArticleTag articleTag) {
         articleTagDao.addArtricleTag(articleTag);
     }
+
+    @Override
+    public List<Article> getAllDisplayArticles() {
+        return articleDao.getAllArticles()
+                .stream()
+                .filter(a->a.getDisplay()==1)
+                .collect(Collectors.toList());
+    }
+
+
+
 
 }

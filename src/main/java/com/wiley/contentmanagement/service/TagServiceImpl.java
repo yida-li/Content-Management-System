@@ -32,12 +32,12 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public Tag addTag(Tag tag) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return tagDao.addTag(tag);
     }
 
     @Override
     public void updateTag(Tag tag) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        tagDao.updateTag(tag);
     }
 
     @Override
