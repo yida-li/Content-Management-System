@@ -28,11 +28,6 @@ public class contentController {
     @Autowired
     TagService tagService;
 
-    @GetMapping("/")
-    public String index(Model model) {
-        return "index";
-    }
-
     @GetMapping("/page")
     public String page(Model model) {
         model.addAttribute("tags", tagService.getAllTags());
@@ -44,10 +39,7 @@ public class contentController {
         return "manage";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+
 
     @GetMapping("/editpage")
     public String editPage() {
