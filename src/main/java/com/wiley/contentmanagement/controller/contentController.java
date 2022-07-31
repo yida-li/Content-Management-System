@@ -114,10 +114,13 @@ public class contentController {
     }
 
     @PostMapping("/tinytxt")
-    public String writeBlog(String tinyContent, Integer[] tid) {
+    public String writeBlog(String title, String tag,String tinyContent, Integer[] tid) {
 
         Article a = new Article();
+      
+        a.setTitle(title);
         a.setContent(tinyContent);
+        
         a.setCreateTime(LocalDateTime.now());
 
         articleService.addArtricle(a);

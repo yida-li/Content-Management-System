@@ -171,8 +171,13 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
 
             <div class="col text-center m-3">
                 <form method="post" th:action="@{/tinytxt}">
-
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title"><br><br>
+                        <label for="tags">Hashtag:</label>
+                        <input type="text" id="tag" name="tag"><br><br>
                     <textarea id="mytextarea" name="tinyContent">Write your blog!</textarea>
+                    
+                    
                     <button type="submit">submit</button>
                 </form>
 
@@ -193,7 +198,8 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
                     plugins: "image",
                     toolbar: "image",
                     images_upload_url: '/pic',
-                    images_upload_base_path: '/pics'
+                    images_upload_base_path: '/pics',
+                    
 
                 });
             </script>
