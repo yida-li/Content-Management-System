@@ -65,17 +65,22 @@ public class contentController {
     
        @GetMapping("/tag")
     public String tag(Model model) {
-                        HashMap<Integer, List<Tag>> atmap = new HashMap<>();
-        List<Article> blogs = aService.getAllArticles();
-
-        // get article tags by aid from atS
-        for(Article article : blogs){
-            int temp= article.getAid();
-            atmap.put(temp,atService.getArticleTagByAid(temp));
+                       
+      
+        
+        List<Tag> tagList = tagService.getAllTags();
+        
+        HashMap<Integer,List<Article>> articleMap = new HashMap<>();
+        
+        for (Tag tag: tagList){
+            articleMap.put(tag.getTid(),atService.getArticlesByTid(tag.getTid()));
         }
-
-        model.addAttribute("blogs",blogs);
-        model.addAttribute("atmap",atmap);
+        
+      
+       
+        model.addAttribute("articleMap",articleMap);
+       
+       
         model.addAttribute("tags", tagService.getAllTags());
         return "tag";
     }
