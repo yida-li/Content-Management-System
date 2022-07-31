@@ -42,7 +42,7 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public void deleteTagById(int tid) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        tagDao.deleteTagById(tid);
     }
 
 }

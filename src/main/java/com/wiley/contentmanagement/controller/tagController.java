@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
+import java.util.HashMap;
+
 @Controller
 public class tagController {
     @Autowired
@@ -22,24 +26,49 @@ public class tagController {
     }
 
     @PostMapping("/addTag")
-    public void addTag(@RequestParam("name") String name,Model model){
+    public void addTag(HttpServletRequest req, Model model){
+        Enumeration<String> names = req.getParameterNames();
+        HashMap<String,String[]> map = new HashMap<>();
+        while (names.hasMoreElements()) {
+            String name = names.nextElement();
+            String[] values = req.getParameterValues(name);
+            if(values!=null){
+                map.put(name, values);
+            }
+        }
+
         Tag tag = new Tag();
-        tag.setName(name);
+        tag.setName(map.get("name")[0]);
         tService.addTag(tag);
         model.addAttribute("tags",tService.getAllTags());
     }
 
-    @GetMapping("/editTag")
-    public ResponseEntity editTag(@RequestParam("id") int id,
-                                  @RequestParam("name") String name,
+    @PostMapping("/editTag")
+    public ResponseEntity editTag(HttpServletRequest req,
+                                  @RequestParam("id") int id,
                                   Model model){
+
+        Enumeration<String> names = req.getParameterNames();
+        HashMap<String,String[]> map = new HashMap<>();
+        while (names.hasMoreElements()) {
+            String name = names.nextElement();
+            String[] values = req.getParameterValues(name);
+            if(values!=null){
+                map.put(name, values);
+            }
+        }
+
         Tag tag = new Tag();
-        tag.setName(name);
+        tag.setName(map.get("name")[0]);
         tag.setTid(id);
         tService.updateTag(tag);
         return ResponseEntity.ok().body(tag);
     }
 
+    @GetMapping("/deleteTag")
+    public void deleteTag(@RequestParam("id") int id){
+        tService.deleteTagById(id);
+    }
 
 
 }
