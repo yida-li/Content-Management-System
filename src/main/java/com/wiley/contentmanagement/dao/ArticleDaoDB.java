@@ -60,7 +60,7 @@ public class ArticleDaoDB implements ArticleDao {
 
     @Override
     public List<Article> getAllArticles() {
-        final String GET_ALL_ARTICLE = "select * from article";
+        final String GET_ALL_ARTICLE = "select * from article where display=1";
         try {
             return jdbc.query(GET_ALL_ARTICLE, new ArticleMapper());
         } catch (EmptyResultDataAccessException e) {
@@ -68,6 +68,17 @@ public class ArticleDaoDB implements ArticleDao {
         }
     }
 
+    @Override
+    public List<Article> getAllDraft() {
+        final String GET_ALL_ARTICLE = "select * from article where display=0";
+        try {
+            return jdbc.query(GET_ALL_ARTICLE, new ArticleMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+    
+    
     @Override
     @Transactional
     public Article addArtricle(Article article) {

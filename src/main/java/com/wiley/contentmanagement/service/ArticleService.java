@@ -15,7 +15,7 @@ import java.util.List;
 public interface ArticleService {
 
     Article getArticleById(int aid);
-
+    List<Article> getAllDrafts();
     List<Article> getAllArticles();
 
     Article addArtricle(Article article);

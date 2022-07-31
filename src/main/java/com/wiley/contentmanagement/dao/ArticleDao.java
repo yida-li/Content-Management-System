@@ -18,7 +18,7 @@ public interface ArticleDao {
     List<Article> getAllArticles();
 
     Article addArtricle(Article article);
-
+    List<Article> getAllDraft();
     void updateArticle(Article article);
 
     void deleteArticleById(int aid);
