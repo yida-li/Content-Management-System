@@ -25,4 +25,7 @@ public interface ArticleService {
     void deleteArticleById(int aid);
 
     public void addTag(ArticleTag articleTag);
+
+    List<Article> getAllDisplayArticles();
+
 }

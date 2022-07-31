@@ -72,8 +72,8 @@ public class TagDaoDB implements TagDao {
 
     @Override
     public void updateTag(Tag tag) {
-        final String UPDATE_TAG = "update tag set name=?";
-        jdbc.update(UPDATE_TAG,tag.getName());
+        final String UPDATE_TAG = "update tag set name=? where tid=?";
+        jdbc.update(UPDATE_TAG,tag.getName(),tag.getTid());
     }
 
     @Override
