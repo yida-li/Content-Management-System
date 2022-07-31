@@ -72,8 +72,7 @@ public class ArticleController {
     }
 
     @PostMapping("/updateArticleTag")
-    public ResponseEntity postChangeTag(HttpServletRequest req,
-                                        @RequestParam("id") int aid){
+    public ResponseEntity postChangeTag(HttpServletRequest req){
         Enumeration<String> names = req.getParameterNames();
         HashMap<String,String[]> map = new HashMap<>();
         while (names.hasMoreElements()) {
@@ -83,6 +82,13 @@ public class ArticleController {
                 map.put(name, values);
             }
         }
+        int aid=0;
+        if(map.get("id")[0]!=null){
+            aid = Integer.parseInt(map.get("id")[0]);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
         List<Integer> list = new ArrayList<>();
         // name from frontend
         if(map.get("tagList")!=null){
