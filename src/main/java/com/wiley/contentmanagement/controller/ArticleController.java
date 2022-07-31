@@ -90,6 +90,8 @@ public class ArticleController {
                 list.add(Integer.parseInt(key));
             }
         }
+        atService.updateArticleTag(aid,list);
+        return ResponseEntity.ok().body(list);
     }
 
 }
