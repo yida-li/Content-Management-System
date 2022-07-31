@@ -42,6 +42,7 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
             background-color: #111;
         }
         .blog-container{
+            
             margin-top: 10px;
             margin-left: 50px;
             margin-right: 50px;
@@ -96,6 +97,44 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
             margin-top: 30px;
             margin-bottom: 5px;
         }
+        
+        
+        .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
     </style>
     <title>Content Management Application</title>
 </head>
@@ -110,14 +149,19 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
 <!-- Main Body of Page -->
 <div id="container">
     <!--navigation-->
-    <ul>
-      <li><a class="active" href="/">Home</a></li>
-      <li><a href="/page">Write Blog</a></li>
-      <li><a href="/manage">Blog Management</a></li>
-      <li><a href="/tag">Tags</a></li>
-      <li><a href="/login">Login/Signup</a></li>
-      <li><a href="/editpage">Edit</a></li>
-    </ul>
+    
+<div class="topnav" id="myTopnav">
+      <a class="active" href="/">Home</a>
+      <a href="/page">Write Blog</a>
+      <a href="/manage">Blog Management</a>
+      <a href="/tag">Tags</a>
+      <a href="/login">Login/Signup</a>
+      <a href="/editpage">Edit</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
     <!--end of navigation-->
 
 <!--    blog display-->
@@ -159,7 +203,16 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script src="https://cdn.tiny.cloud/1/pbre6c0att3hilb895xv9g3nqgotaiiubjtlyio1qfhvzokk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
 </body>
 
 </html>
