@@ -116,16 +116,28 @@ public class contentController {
     @PostMapping("/tinytxt")
     public String writeBlog(String title, String tag,String tinyContent, Integer[] tid) {
 
+        //article objectr
         Article a = new Article();
       
         a.setTitle(title);
         a.setContent(tinyContent);
         
         a.setCreateTime(LocalDateTime.now());
-
+        a.setUpdateTime(LocalDateTime.now());
         articleService.addArtricle(a);
-
-        if (tid != null) {
+        
+        //tag object
+        Tag tt= new Tag();
+        tt.setName(tag);
+        tagService.addTag(tt);
+        // articletag object 
+        ArticleTag att = new ArticleTag();
+        att.setArticle(a);
+        att.setTag(tt);
+        articleService.addTag(att);
+        
+        /*
+           if (tid != null) {
             for (Integer t : tid) {
                 ArticleTag at = new ArticleTag();
                 at.setArticle(a);
@@ -133,6 +145,9 @@ public class contentController {
                 articleService.addTag(at);
             }
         }
+        
+        */
+     
 
         return "redirect:/";
     }
