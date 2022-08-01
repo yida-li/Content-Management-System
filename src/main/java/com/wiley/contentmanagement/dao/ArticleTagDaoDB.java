@@ -30,7 +30,7 @@ public class ArticleTagDaoDB implements ArticleTagDao {
                     rs.getString("content"),
                     rs.getInt("display"),
                     rs.getTimestamp("createTime").toLocalDateTime(),
-                    rs.getTimestamp("updateTime").toLocalDateTime(),
+                    rs.getTimestamp("updateTime") == null ? null : rs.getTimestamp("updateTime").toLocalDateTime(),
                     rs.getTimestamp("expireTime") == null ? null : rs.getTimestamp("expireTime").toLocalDateTime()
             ));
             articleTag.setTag(new Tag(rs.getInt("tid"),
@@ -70,9 +70,6 @@ public class ArticleTagDaoDB implements ArticleTagDao {
             return null;
         }
     }
-    
-    
-    
 
     @Override
     public ArticleTag addArtricleTag(ArticleTag articleTag) {
@@ -87,10 +84,6 @@ public class ArticleTagDaoDB implements ArticleTagDao {
             return null;
         }
     }
-    
-    
-    
-    
 
     private int getLastIncrementIndex() {
         final String GET_LAST_INCREMENT_INDEX = "select @@identity";
