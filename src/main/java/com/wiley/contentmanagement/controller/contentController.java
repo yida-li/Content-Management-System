@@ -136,7 +136,8 @@ public class contentController {
     }
 
     @GetMapping("/manage/deleteBlog")
-    public String deletePage() {
+    public String deletePage(int aid) {
+        articleService.deleteArticleById(aid);
         return "redirect:/manage";
     }
 
