@@ -10,7 +10,6 @@ import com.wiley.contentmanagement.model.Article;
 import com.wiley.contentmanagement.model.ArticleTag;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,12 +35,11 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> getAllArticles() {
         return articleDao.getAllArticles();
     }
-    
+
     @Override
     public List<Article> getAllDrafts() {
         return articleDao.getAllDraft();
     }
-    
 
     @Override
     public Article addArtricle(Article article) {
@@ -50,19 +48,19 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void updateArticle(Article article) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        articleDao.updateArticle(article);
     }
 
     @Override
     public void deleteArticleById(int aid) {
-       articleDao.deleteArticleById(aid);
+        articleDao.deleteArticleById(aid);
     }
 
     @Override
     public void addTag(ArticleTag articleTag) {
         articleTagDao.addArtricleTag(articleTag);
     }
-    
+
     @Override
     public void approveArticle(Article ar) {
         articleDao.approveArticle(ar);
@@ -72,11 +70,8 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> getAllDisplayArticles() {
         return articleDao.getAllArticles()
                 .stream()
-                .filter(a->a.getDisplay()==1)
+                .filter(a -> a.getDisplay() == 1)
                 .collect(Collectors.toList());
     }
-
-
-
 
 }
