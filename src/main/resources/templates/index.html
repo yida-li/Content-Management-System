@@ -2,41 +2,41 @@
 
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style>
-        body {
-background-color: #ffffff;
-background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, #ffffff 100%);
-
-
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <style>
+            body {
+                background-color: #ffffff;
+                background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, #ffffff 100%);
 
 
-}
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
 
-        li {
-            float: left;
-        }
 
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
 
         li a:hover {
             background-color: #111;
@@ -176,47 +176,185 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
                     <h2 class="blog-title" th:text="${blog.title}">title</h2>
                     <div class="blog-tag" th:each="tag:${atmap[__${blog.aid}__]}">
                         <div  th:text="${tag.name}">tag</div>
+
+                margin-top: 10px;
+                margin-left: 50px;
+                margin-right: 50px;
+                margin-bottom: 40px;
+                padding-top: 10px;
+                border-style: solid;
+                border-width: 4px;
+            }
+            /*shadow*/
+            .blog-container:hover{
+                box-shadow: 0 30px 50px rgba(51, 51, 51, .25);
+                background: #ededed;
+            }
+            .blog-container .blog{
+                color: #111111;
+                text-decoration: none;
+            }
+            .blog-container .blog .blog-title{
+                margin-left: 15px;
+                padding-left: 15px;
+            }
+            /*content*/
+            .blog-container .blog .blog-content{
+                padding-left: 50px;
+                padding-right: 50px;
+                margin-bottom: 20px;
+                display: -webkit-box;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp:2;
+                word-break: break-all;
+                -webkit-box-orient: vertical;
+                /*-webkit-box-lines: multiple;*/
+            }
+            .blog-container .blog .blog-tag{
+                margin-top: 20px;
+                margin-bottom: 25px;
+                margin-left: 10px;
+                padding-top: 3px;
+                padding-right: 10px;
+                padding-left: 10px;
+                border-radius: 20px;
+                border: 2px solid #02276c;
+
+            }
+            .blog-container .blog .blog-tag:hover{
+                background: rgba(149, 180, 180, 0.49);
+            }
+
+            .blog-container .blog .blog-time{
+                margin-left: 30px;
+                margin-top: 30px;
+                margin-bottom: 5px;
+            }
+
+
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            .topnav a {
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            .topnav a.active {
+                background-color: #04AA6D;
+                color: white;
+            }
+
+            .topnav .icon {
+                display: none;
+            }
+
+            @media screen and (max-width: 600px) {
+                .topnav a:not(:first-child) {
+                    display: none;
+                }
+                .topnav a.icon {
+                    float: right;
+                    display: block;
+                }
+            }
+        </style>
+        <title>Content Management Application</title>
+    </head>
+
+
+
+
+
+    <body>
+
+
+        <!-- Main Body of Page -->
+        <div id="container">
+            <!--navigation-->
+
+            <div class="topnav" id="myTopnav">
+                <a class="active" href="/">Home</a>
+                <div class="nav_admin" style="display: none">
+                    <a href="/page">Write Blog</a>
+                    <a href="/manage">Blog Management</a>
+                    <a href="/tag">Tags</a>
+                    <div class="nav_boss" style="display: none">
+                        <a href="/manageBoss">Approval</a>
                     </div>
-                    <div class="blog-time" th:text="'last update time : '+${blog.updateTime}"></div>
                 </div>
-                <div class="blog-content" th:utext="${blog.content}">content</div>
-                <div class="col-4">more... </div>
+                <div class="nav_login">
+                    <a href="/login" style="float: right">Login</a>
+                </div>
+            </div>
 
-            </a>
+            <!--end of navigation-->
+
+            <!--    blog display-->
+            <div class="blogs" th:each="blog:${blogs}">
+                <div class="blog-container">
+                    <a class="blog" th:href="@{'/blogPage'(aid=${blog.aid})}">
+                        <div class="row m-8">
+                            <h2 class="blog-title" th:text="${blog.title}">title</h2>
+                            <div class="blog-tag" th:each="tag:${atmap[__${blog.aid}__]}">
+                                <div  th:text="${tag.name}">tag</div>
+                            </div>
+                            <div class="blog-time" th:text="'last update time : '+${blog.updateTime}"></div>
+                        </div>
+                        <div class="blog-content" th:utext="${blog.content}">content</div>
+                        <div class="col-4">more... </div>
+
+                    </a>
+                </div>
+            </div>
+            <!--    end of blog display-->
         </div>
-    </div>
-<!--    end of blog display-->
-</div>
 
 
 
-<!-- End main body -->
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="https://cdn.tiny.cloud/1/pbre6c0att3hilb895xv9g3nqgotaiiubjtlyio1qfhvzokk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script type="text/javascript">
-    $(navPop())
 
-    function navPop(){
-        var role = [[${session.role}]];
-        if(role==0){
-            $('.nav_admin').css('display','block');
-            $('.nav_login').css('display', 'none');
-        }
-        if(role==1){
-            $('.nav_admin').css('display','block');
-            $('.nav_boss').css('display','block');
-            $('.nav_login').css('display', 'none');
-        }
-    }
-</script>
+        <!-- End main body -->
 
-</body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://cdn.tiny.cloud/1/pbre6c0att3hilb895xv9g3nqgotaiiubjtlyio1qfhvzokk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+        <script type="text/javascript">
+            $(navPop())
+
+                    function navPop(){
+                    var role = [[${session.role}]];
+                    if (role == 0){
+                    $('.nav_admin').css('display', 'block');
+                    $('.nav_login').css('display', 'none');
+                    }
+                    if (role == 1){
+                    $('.nav_admin').css('display', 'block');
+                    $('.nav_boss').css('display', 'block');
+                    $('.nav_login').css('display', 'none');
+                    }
+                    }
+        </script>
+
+    </body>
 
 </html>
