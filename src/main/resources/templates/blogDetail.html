@@ -8,16 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
         body {
-            background-color: #ffffff;
-            background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, #ffffff 100%);
+background-color: #ffffff;
+background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, #ffffff 100%);
 
 
-        }
 
+
+}
         ul {
             list-style-type: none;
             margin: 0;
@@ -41,9 +41,8 @@
         li a:hover {
             background-color: #111;
         }
-
-        .blog-container {
-
+        .blog-container{
+            
             margin-top: 10px;
             margin-left: 50px;
             margin-right: 50px;
@@ -52,38 +51,33 @@
             border-style: solid;
             border-width: 4px;
         }
-
         /*shadow*/
-        .blog-container:hover {
+        .blog-container:hover{
             box-shadow: 0 30px 50px rgba(51, 51, 51, .25);
             background: #ededed;
         }
-
-        .blog-container .blog {
+        .blog-container .blog{
             color: #111111;
             text-decoration: none;
         }
-
-        .blog-container .blog .blog-title {
+        .blog-container .blog .blog-title{
             margin-left: 15px;
             padding-left: 15px;
         }
-
         /*content*/
-        .blog-container .blog .blog-content {
+        .blog-container .blog .blog-content{
             padding-left: 50px;
             padding-right: 50px;
             margin-bottom: 20px;
             display: -webkit-box;
             overflow: hidden;
             text-overflow: ellipsis;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp:2;
             word-break: break-all;
             -webkit-box-orient: vertical;
             /*-webkit-box-lines: multiple;*/
         }
-
-        .blog-container .blog .blog-tag {
+        .blog-container .blog .blog-tag{
             margin-top: 20px;
             margin-bottom: 25px;
             margin-left: 10px;
@@ -94,60 +88,59 @@
             border: 2px solid #02276c;
 
         }
-
-        .blog-container .blog .blog-tag:hover {
+        .blog-container .blog .blog-tag:hover{
             background: rgba(149, 180, 180, 0.49);
         }
 
-        .blog-container .blog .blog-time {
+        .blog-container .blog .blog-time{
             margin-left: 30px;
             margin-top: 30px;
             margin-bottom: 5px;
         }
-
-
+        
+        
         .topnav {
-            overflow: hidden;
-            background-color: #333;
-        }
+  overflow: hidden;
+  background-color: #333;
+}
 
-        .topnav a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
-        .topnav a.active {
-            background-color: #04AA6D;
-            color: white;
-        }
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
 
-        .topnav .icon {
-            display: none;
-        }
+.topnav .icon {
+  display: none;
+}
 
-        @media screen and (max-width: 600px) {
-            .topnav a:not(:first-child) {
-                display: none;
-            }
-
-            .topnav a.icon {
-                float: right;
-                display: block;
-            }
-        }
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
     </style>
     <title>Content Management Application</title>
 </head>
+
+
+
 
 
 <body>
@@ -156,29 +149,25 @@
 <!-- Main Body of Page -->
 <div id="container">
     <!--navigation-->
-
-    <div class="topnav" id="myTopnav">
-        <a class="active" href="/">Home</a>
-        <div class="nav_admin" style="display: none">
-            <a href="/page">Write Blog</a>
-            <a href="/manage">Blog Management</a>
-            <a href="/tag">Tags</a>
-            <div class="nav_boss" style="display: none">
-                <a href="/manageBoss">Approval</a>
-            </div>
-        </div>
-        <div class="nav_login">
-            <a href="/login" style="float: right">Login</a>
-        </div>
-    </div>
-
+    
+<div class="topnav" id="myTopnav">
+      <a class="active" href="/">Home</a>
+      <a href="/page">Write Blog</a>
+      <a href="/manage">Blog Management</a>
+      <a href="/tag">Tags</a>
+      <a href="/login">Login/Signup</a>
+      <a href="/editpage">Edit</a>
+      <a href="/manageBoss">Approval</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
     <!--end of navigation-->
 
 
     <div class="container">
         <div class="back">
-            <a class="btn btn-outline-primary btn-lg" th:href="@{/}"><span
-                    class="glyphicon glyphicon-share-alt"></span>back to front page</a>
+            <a class="btn btn-outline-primary btn-lg" th:href="@{/index}"><span class="glyphicon glyphicon-share-alt"></span>back to front page</a>
         </div>
 
         <div class="row">
@@ -189,63 +178,35 @@
 
         </div>
         <div class="content">
-            <div class="blog-content">D:\JDK11\bin\java.exe -XX:TieredStopAtLevel=1 -noverify
-                -Dspring.output.ansi.enabled=always "-javaagent:D:\IntelliJ IDEA\IntelliJ IDEA
-                2021.1.2\lib\idea_rt.jar=62411:D:\IntelliJ IDEA\IntelliJ IDEA 2021.1.2\bin"
-                -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain
-                -Dspring.application.admin.enabled=true -Dfile.encoding=UTF-8 -classpath
-                D:\practice\mtraining\assignment\blog\Content-Management-System\target\classes;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\2.7.2\spring-boot-starter-jdbc-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter\2.7.2\spring-boot-starter-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.7.2\spring-boot-starter-logging-2.7.2.jar;C:\Users\Surface\.m2\repository\ch\qos\logback\logback-classic\1.2.11\logback-classic-1.2.11.jar;C:\Users\Surface\.m2\repository\ch\qos\logback\logback-core\1.2.11\logback-core-1.2.11.jar;C:\Users\Surface\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.17.2\log4j-to-slf4j-2.17.2.jar;C:\Users\Surface\.m2\repository\org\apache\logging\log4j\log4j-api\2.17.2\log4j-api-2.17.2.jar;C:\Users\Surface\.m2\repository\org\slf4j\jul-to-slf4j\1.7.36\jul-to-slf4j-1.7.36.jar;C:\Users\Surface\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\Surface\.m2\repository\org\yaml\snakeyaml\1.30\snakeyaml-1.30.jar;C:\Users\Surface\.m2\repository\com\zaxxer\HikariCP\4.0.3\HikariCP-4.0.3.jar;C:\Users\Surface\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-jdbc\5.3.22\spring-jdbc-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-beans\5.3.22\spring-beans-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-tx\5.3.22\spring-tx-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\2.7.2\spring-boot-starter-thymeleaf-2.7.2.jar;C:\Users\Surface\.m2\repository\org\thymeleaf\thymeleaf-spring5\3.0.15.RELEASE\thymeleaf-spring5-3.0.15.RELEASE.jar;C:\Users\Surface\.m2\repository\org\thymeleaf\thymeleaf\3.0.15.RELEASE\thymeleaf-3.0.15.RELEASE.jar;C:\Users\Surface\.m2\repository\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;C:\Users\Surface\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\Surface\.m2\repository\org\thymeleaf\extras\thymeleaf-extras-java8time\3.0.4.RELEASE\thymeleaf-extras-java8time-3.0.4.RELEASE.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.7.2\spring-boot-starter-web-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-json\2.7.2\spring-boot-starter-json-2.7.2.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.3\jackson-databind-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.3\jackson-annotations-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.3\jackson-core-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.13.3\jackson-datatype-jdk8-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.13.3\jackson-datatype-jsr310-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.13.3\jackson-module-parameter-names-2.13.3.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\2.7.2\spring-boot-starter-tomcat-2.7.2.jar;C:\Users\Surface\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\9.0.65\tomcat-embed-core-9.0.65.jar;C:\Users\Surface\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\9.0.65\tomcat-embed-el-9.0.65.jar;C:\Users\Surface\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.65\tomcat-embed-websocket-9.0.65.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-web\5.3.22\spring-web-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-webmvc\5.3.22\spring-webmvc-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-aop\5.3.22\spring-aop-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-context\5.3.22\spring-context-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-expression\5.3.22\spring-expression-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-devtools\2.7.2\spring-boot-devtools-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot\2.7.2\spring-boot-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.7.2\spring-boot-autoconfigure-2.7.2.jar;C:\Users\Surface\.m2\repository\mysql\mysql-connector-java\8.0.29\mysql-connector-java-8.0.29.jar;C:\Users\Surface\.m2\repository\org\projectlombok\lombok\1.18.24\lombok-1.18.24.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-core\5.3.22\spring-core-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-jcl\5.3.22\spring-jcl-5.3.22.jar
-                com.wiley.contentmanagement.ContentmanagementApplication
-                14:34:08.582 [Thread-0] DEBUG org.springframework.boot.devtools.restart.classloader.RestartClassLoader -
-                Created RestartClassLoader
-                org.springframework.boot.devtools.restart.classloader.RestartClassLoader@4d431226
+            <div class="blog-content">D:\JDK11\bin\java.exe -XX:TieredStopAtLevel=1 -noverify -Dspring.output.ansi.enabled=always "-javaagent:D:\IntelliJ IDEA\IntelliJ IDEA 2021.1.2\lib\idea_rt.jar=62411:D:\IntelliJ IDEA\IntelliJ IDEA 2021.1.2\bin" -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dfile.encoding=UTF-8 -classpath D:\practice\mtraining\assignment\blog\Content-Management-System\target\classes;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\2.7.2\spring-boot-starter-jdbc-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter\2.7.2\spring-boot-starter-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.7.2\spring-boot-starter-logging-2.7.2.jar;C:\Users\Surface\.m2\repository\ch\qos\logback\logback-classic\1.2.11\logback-classic-1.2.11.jar;C:\Users\Surface\.m2\repository\ch\qos\logback\logback-core\1.2.11\logback-core-1.2.11.jar;C:\Users\Surface\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.17.2\log4j-to-slf4j-2.17.2.jar;C:\Users\Surface\.m2\repository\org\apache\logging\log4j\log4j-api\2.17.2\log4j-api-2.17.2.jar;C:\Users\Surface\.m2\repository\org\slf4j\jul-to-slf4j\1.7.36\jul-to-slf4j-1.7.36.jar;C:\Users\Surface\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\Surface\.m2\repository\org\yaml\snakeyaml\1.30\snakeyaml-1.30.jar;C:\Users\Surface\.m2\repository\com\zaxxer\HikariCP\4.0.3\HikariCP-4.0.3.jar;C:\Users\Surface\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-jdbc\5.3.22\spring-jdbc-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-beans\5.3.22\spring-beans-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-tx\5.3.22\spring-tx-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\2.7.2\spring-boot-starter-thymeleaf-2.7.2.jar;C:\Users\Surface\.m2\repository\org\thymeleaf\thymeleaf-spring5\3.0.15.RELEASE\thymeleaf-spring5-3.0.15.RELEASE.jar;C:\Users\Surface\.m2\repository\org\thymeleaf\thymeleaf\3.0.15.RELEASE\thymeleaf-3.0.15.RELEASE.jar;C:\Users\Surface\.m2\repository\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;C:\Users\Surface\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\Surface\.m2\repository\org\thymeleaf\extras\thymeleaf-extras-java8time\3.0.4.RELEASE\thymeleaf-extras-java8time-3.0.4.RELEASE.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.7.2\spring-boot-starter-web-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-json\2.7.2\spring-boot-starter-json-2.7.2.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.3\jackson-databind-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.3\jackson-annotations-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.3\jackson-core-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.13.3\jackson-datatype-jdk8-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.13.3\jackson-datatype-jsr310-2.13.3.jar;C:\Users\Surface\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.13.3\jackson-module-parameter-names-2.13.3.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\2.7.2\spring-boot-starter-tomcat-2.7.2.jar;C:\Users\Surface\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\9.0.65\tomcat-embed-core-9.0.65.jar;C:\Users\Surface\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\9.0.65\tomcat-embed-el-9.0.65.jar;C:\Users\Surface\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.65\tomcat-embed-websocket-9.0.65.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-web\5.3.22\spring-web-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-webmvc\5.3.22\spring-webmvc-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-aop\5.3.22\spring-aop-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-context\5.3.22\spring-context-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-expression\5.3.22\spring-expression-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-devtools\2.7.2\spring-boot-devtools-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot\2.7.2\spring-boot-2.7.2.jar;C:\Users\Surface\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.7.2\spring-boot-autoconfigure-2.7.2.jar;C:\Users\Surface\.m2\repository\mysql\mysql-connector-java\8.0.29\mysql-connector-java-8.0.29.jar;C:\Users\Surface\.m2\repository\org\projectlombok\lombok\1.18.24\lombok-1.18.24.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-core\5.3.22\spring-core-5.3.22.jar;C:\Users\Surface\.m2\repository\org\springframework\spring-jcl\5.3.22\spring-jcl-5.3.22.jar com.wiley.contentmanagement.ContentmanagementApplication
+                14:34:08.582 [Thread-0] DEBUG org.springframework.boot.devtools.restart.classloader.RestartClassLoader - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@4d431226
 
-                . ____ _ __ _ _
-                /\\ / ___'_ __ _ _(_)_ __ __ _ \ \ \ \
+                .   ____          _            __ _ _
+                /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
                 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
-                \\/ ___)| |_)| | | | | || (_| | ) ) ) )
-                ' |____| .__|_| |_|_| |_\__, | / / / /
+                \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+                '  |____| .__|_| |_|_| |_\__, | / / / /
                 =========|_|==============|___/=/_/_/_/
-                :: Spring Boot :: (v2.7.2)
+                :: Spring Boot ::                (v2.7.2)
 
-                2022-07-28 14:34:09.412 INFO 4948 --- [ restartedMain] c.w.c.ContentmanagementApplication : Starting
-                ContentmanagementApplication using Java 11.0.15 on DESKTOP-IFTG7DN with PID 4948
-                (D:\practice\mtraining\assignment\blog\Content-Management-System\target\classes started by Surface in
-                D:\practice\mtraining\assignment\blog\Content-Management-System)
-                2022-07-28 14:34:09.414 INFO 4948 --- [ restartedMain] c.w.c.ContentmanagementApplication : The
-                following 1 profile is active: "test"
-                2022-07-28 14:34:09.481 INFO 4948 --- [ restartedMain] .e.DevToolsPropertyDefaultsPostProcessor :
-                Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-                2022-07-28 14:34:09.481 INFO 4948 --- [ restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For
-                additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-                2022-07-28 14:34:11.065 INFO 4948 --- [ restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer : Tomcat
-                initialized with port(s): 8080 (http)
-                2022-07-28 14:34:11.078 INFO 4948 --- [ restartedMain] o.apache.catalina.core.StandardService : Starting
-                service [Tomcat]
-                2022-07-28 14:34:11.078 INFO 4948 --- [ restartedMain] org.apache.catalina.core.StandardEngine :
-                Starting Servlet engine: [Apache Tomcat/9.0.65]
-                2022-07-28 14:34:11.159 INFO 4948 --- [ restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing
-                Spring embedded WebApplicationContext
-                2022-07-28 14:34:11.160 INFO 4948 --- [ restartedMain] w.s.c.ServletWebServerApplicationContext : Root
-                WebApplicationContext: initialization completed in 1678 ms
-                2022-07-28 14:34:11.529 INFO 4948 --- [ restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping : Adding
-                welcome page template: index
-                2022-07-28 14:34:11.691 INFO 4948 --- [ restartedMain] o.s.b.d.a.OptionalLiveReloadServer : LiveReload
-                server is running on port 35729
-                2022-07-28 14:34:11.727 INFO 4948 --- [ restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer : Tomcat
-                started on port(s): 8080 (http) with context path ''
-                2022-07-28 14:34:11.743 INFO 4948 --- [ restartedMain] c.w.c.ContentmanagementApplication : Started
-                ContentmanagementApplication in 3.14 seconds (JVM running for 4.879)
-                2022-07-28 14:34:19.491 INFO 4948 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] :
-                Initializing Spring DispatcherServlet 'dispatcherServlet'
-                2022-07-28 14:34:19.491 INFO 4948 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing
-                Servlet 'dispatcherServlet'
-                2022-07-28 14:34:19.493 INFO 4948 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed
-                initialization in 2 ms
-                2022-07-28 14:34:19.535 INFO 4948 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource :
-                HikariPool-1 - Starting...
-                2022-07-28 14:34:19.696 INFO 4948 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource :
-                HikariPool-1 - Start completed.
+                2022-07-28 14:34:09.412  INFO 4948 --- [  restartedMain] c.w.c.ContentmanagementApplication       : Starting ContentmanagementApplication using Java 11.0.15 on DESKTOP-IFTG7DN with PID 4948 (D:\practice\mtraining\assignment\blog\Content-Management-System\target\classes started by Surface in D:\practice\mtraining\assignment\blog\Content-Management-System)
+                2022-07-28 14:34:09.414  INFO 4948 --- [  restartedMain] c.w.c.ContentmanagementApplication       : The following 1 profile is active: "test"
+                2022-07-28 14:34:09.481  INFO 4948 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+                2022-07-28 14:34:09.481  INFO 4948 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+                2022-07-28 14:34:11.065  INFO 4948 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+                2022-07-28 14:34:11.078  INFO 4948 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+                2022-07-28 14:34:11.078  INFO 4948 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+                2022-07-28 14:34:11.159  INFO 4948 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+                2022-07-28 14:34:11.160  INFO 4948 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1678 ms
+                2022-07-28 14:34:11.529  INFO 4948 --- [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+                2022-07-28 14:34:11.691  INFO 4948 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+                2022-07-28 14:34:11.727  INFO 4948 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+                2022-07-28 14:34:11.743  INFO 4948 --- [  restartedMain] c.w.c.ContentmanagementApplication       : Started ContentmanagementApplication in 3.14 seconds (JVM running for 4.879)
+                2022-07-28 14:34:19.491  INFO 4948 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+                2022-07-28 14:34:19.491  INFO 4948 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+                2022-07-28 14:34:19.493  INFO 4948 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+                2022-07-28 14:34:19.535  INFO 4948 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+                2022-07-28 14:34:19.696  INFO 4948 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
             </div>
             <div th:text="${blog.content}">content</div>
         </div>
@@ -254,22 +215,16 @@
 </div>
 
 
+
 <!-- End main body -->
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.tiny.cloud/1/pbre6c0att3hilb895xv9g3nqgotaiiubjtlyio1qfhvzokk/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdn.tiny.cloud/1/pbre6c0att3hilb895xv9g3nqgotaiiubjtlyio1qfhvzokk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script type="text/javascript">
     let btn = document.getElementById("btn");
 
@@ -285,23 +240,6 @@
                 clearInterval(timer)
             }
         }, 16.7)
-    }
-</script>
-
-<script type="text/javascript">
-    $(navPop())
-
-    function navPop() {
-        var role = [[${session.role}]];
-        if (role == 0) {
-            $('.nav_admin').css('display', 'block');
-            $('.nav_login').css('display', 'none');
-        }
-        if (role == 1) {
-            $('.nav_admin').css('display', 'block');
-            $('.nav_boss').css('display', 'block');
-            $('.nav_login').css('display', 'none');
-        }
     }
 </script>
 </body>
