@@ -112,10 +112,9 @@ public class ArticleDaoDB implements ArticleDao {
     
     
     @Override
-    public void approveArticle(Article article) {
+    public void approveArticle(int aid) {
         final String UPDATE_ARTICLE = "update article set display= 1 where aid=?";
-        jdbc.update(UPDATE_ARTICLE,
-                article.getAid());
+        jdbc.update(UPDATE_ARTICLE,aid);
     }
     
     
