@@ -21,7 +21,7 @@ public interface ArticleService {
     Article addArtricle(Article article);
 
     void updateArticle(Article article);
-
+    void approveArticle(Article ar);
     void deleteArticleById(int aid);
 
     public void addTag(ArticleTag articleTag);

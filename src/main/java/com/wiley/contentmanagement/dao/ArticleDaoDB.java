@@ -109,6 +109,16 @@ public class ArticleDaoDB implements ArticleDao {
                 article.getExpireTime(),
                 article.getAid());
     }
+    
+    
+    @Override
+    public void approveArticle(Article article) {
+        final String UPDATE_ARTICLE = "update article set display= 1 where aid=?";
+        jdbc.update(UPDATE_ARTICLE,
+                article.getAid());
+    }
+    
+    
 
     @Override
     public void deleteArticleById(int aid) {

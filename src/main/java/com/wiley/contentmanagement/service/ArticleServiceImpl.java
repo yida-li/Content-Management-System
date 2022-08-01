@@ -62,6 +62,11 @@ public class ArticleServiceImpl implements ArticleService {
     public void addTag(ArticleTag articleTag) {
         articleTagDao.addArtricleTag(articleTag);
     }
+    
+    @Override
+    public void approveArticle(Article ar) {
+        articleDao.approveArticle(ar);
+    }
 
     @Override
     public List<Article> getAllDisplayArticles() {
