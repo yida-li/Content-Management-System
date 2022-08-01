@@ -20,7 +20,7 @@ public interface ArticleDao {
     Article addArtricle(Article article);
     List<Article> getAllDraft();
     void updateArticle(Article article);
-    void approveArticle(Article article);
+    void approveArticle(int aid);
     void deleteArticleById(int aid);
 
 }

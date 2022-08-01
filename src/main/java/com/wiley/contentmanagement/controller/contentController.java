@@ -121,6 +121,7 @@ public class contentController {
         article.setTitle(title);
         article.setContent(content);
         article.setUpdateTime(LocalDateTime.now());
+        article.setDisplay(0);
         articleService.updateArticle(article);
 
         if (tid != null) {
@@ -141,6 +142,21 @@ public class contentController {
         return "redirect:/manage";
     }
 
+    
+    
+    @GetMapping("/manageBoss/deleteBlog")
+    public String deleteBossPage(int aid) {
+        articleService.deleteArticleById(aid);
+        return "redirect:/manageBoss";
+    }
+    
+    @GetMapping("/manageBoss/approveBlog")
+    public String approvePage(int aid) {
+        articleService.approveArticle(aid);
+        return "redirect:/manageBoss";
+    }
+    
+    
     @PostMapping("/tinytxt")
     public String writeBlog(String title, String tinyContent, Integer[] tid) {
 

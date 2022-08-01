@@ -62,8 +62,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void approveArticle(Article ar) {
-        articleDao.approveArticle(ar);
+    public void approveArticle(int aid) {
+        articleDao.approveArticle(aid);
     }
 
     @Override
