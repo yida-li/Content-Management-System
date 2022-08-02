@@ -152,16 +152,20 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
 
   <div class="topnav" id="myTopnav">
     <a href="/">Home</a>
-    <a href="/page">Write Blog</a>
-    <a href="/manage">Blog Management</a>
-    <a href="/tag">Tags</a>
-    <a href="/login">Login/Signup</a>
-
-    <a class="active" href="/manageBoss">Approval</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
+    <div class="nav_admin" style="display: none">
+      <a href="/page">Write Blog</a>
+      <a class="active" href="/manage">Blog Management</a>
+      <a href="/tag">Tags</a>
+      <div class="nav_boss" style="display: none">
+        <a href="/manageBoss">Approval</a>
+      </div>
+    </div>
+    <div class="nav_login">
+      <a href="/login" style="float: right">Login</a>
+    </div>
   </div>
+
+  <!--end of navigation-->
   <!-- Main Body of Page -->
 
 
@@ -231,6 +235,22 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
+  <script type="text/javascript">
+    $(navPop())
+
+    function navPop(){
+      var role = [[${session.role}]];
+      if(role==0){
+        $('.nav_admin').css('display','block');
+        $('.nav_login').css('display', 'none');
+      }
+      if(role==1){
+        $('.nav_admin').css('display','block');
+        $('.nav_boss').css('display','block');
+        $('.nav_login').css('display', 'none');
+      }
+    }
+  </script>
 </body>
 
 </html>
