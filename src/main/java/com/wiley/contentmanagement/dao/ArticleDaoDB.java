@@ -7,6 +7,7 @@ package com.wiley.contentmanagement.dao;
 import com.wiley.contentmanagement.model.Article;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -113,11 +114,10 @@ public class ArticleDaoDB implements ArticleDao {
     
     @Override
     public void approveArticle(int aid) {
-        final String UPDATE_ARTICLE = "update article set display= 1 where aid=?";
-        jdbc.update(UPDATE_ARTICLE,aid);
+        final String UPDATE_ARTICLE = "update article set display= 1, updateTime=? where aid=?";
+        jdbc.update(UPDATE_ARTICLE,LocalDateTime.now(),aid);
     }
-    
-    
+
 
     @Override
     public void deleteArticleById(int aid) {
