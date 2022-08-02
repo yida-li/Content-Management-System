@@ -13,6 +13,6 @@ public class ContentmanagementApplication {
 
 
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(ContentmanagementApplication.class);
+		return builder.sources(ContentmanagementApplication.class);}
 
 }
