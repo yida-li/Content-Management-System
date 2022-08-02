@@ -38,7 +38,7 @@ public class ArticleController {
     @Autowired
     TagService tService;
 
-    @GetMapping({"/index","/"})
+    @GetMapping({"index","/"})
     public String index(Model model){
         HashMap<Integer, List<Tag>> atmap = new HashMap<>();
         List<Article> blogs = aService.getAllDisplayArticles();
@@ -51,7 +51,7 @@ public class ArticleController {
 
         model.addAttribute("blogs",blogs);
         model.addAttribute("atmap",atmap);
-        return "/index.html";
+        return "index.html";
     }
 
     @GetMapping("/blogPage")
