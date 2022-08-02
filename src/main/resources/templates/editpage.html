@@ -153,10 +153,10 @@
             <!--navigation-->
 
             <div class="topnav" id="myTopnav">
-                <a class="active" href="/">Home</a>
+                <a href="/">Home</a>
                 <div class="nav_admin" style="display: none">
                     <a href="/page">Write Blog</a>
-                    <a href="/manage">Blog Management</a>
+                    <a class="active" href="/manage">Blog Management</a>
                     <a href="/tag">Tags</a>
                     <div class="nav_boss" style="display: none">
                         <a href="/manageBoss">Approval</a>
@@ -178,6 +178,7 @@
                         <label for="title" >Title:</label>
                         <input type="text" id="title" name="title" th:value="${article.title}"><br><br>
                         <div class="row m-4">
+                            <div class="col-4"></div>
                             <label>expire time:</label>
                             <input type="date" id="date" name="date">
                             <input type="time" id="time" name="time">
@@ -193,7 +194,7 @@
 
                                     tag Name</option>
                             </select>
-                        </div>
+                        </div><br><br>
                         <textarea id="mytextarea" name="content" th:text="${article.content}">Write your blog!</textarea>
 
                         <input type="hidden" name="aid" th:value="${article.aid}"/>

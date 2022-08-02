@@ -124,11 +124,14 @@ public class contentController {
         article.setUpdateTime(LocalDateTime.now());
         article.setDisplay(0);
 
-        String datetime = date+" "+time;
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime ldt = LocalDateTime.parse(datetime,df);
+        if(date!=null&&time != null){
+            String datetime = date+" "+time;
+            DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime ldt = LocalDateTime.parse(datetime,df);
 
-        article.setExpireTime(ldt);
+            article.setExpireTime(ldt);
+        }
+
         articleService.updateArticle(article);
 
         if (tid != null) {
