@@ -4,6 +4,7 @@ import com.wiley.contentmanagement.model.User;
 import com.wiley.contentmanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -26,7 +27,7 @@ public class loginController {
     }
 
     @PostMapping("/login")
-    public String postLogin(HttpServletRequest request, HttpServletResponse res){
+    public String postLogin(HttpServletRequest request, HttpServletResponse res, Model model){
         Enumeration<String> names = request.getParameterNames();
         HashMap<String,String> map = new HashMap<>();
         while (names.hasMoreElements()) {
@@ -49,13 +50,17 @@ public class loginController {
                 flag=true;
             }
         }
+        HttpSession session = request.getSession();
         if(flag){
-            HttpSession session = request.getSession();
+
             session.setAttribute("user",result);
             session.setAttribute("role",result.getRole());
+            session.setAttribute("loginmsg","login succeeded!");
+            return "redirect:/";
         }else{
-            request.setAttribute("loginmsg","login failed!");
+            session.setAttribute("loginmsg","login failed!");
+            return "/login.html";
         }
-        return "redirect:/index";
+
     }
 }
