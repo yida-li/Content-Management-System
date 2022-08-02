@@ -124,8 +124,9 @@ public class contentController {
         article.setUpdateTime(LocalDateTime.now());
         article.setDisplay(0);
 
-        if(date!=null&&time != null){
-            String datetime = date+" "+time;
+        String datetime = date+" "+time;
+        if(!datetime.equals(" ")&&!date.equals("")){
+
             DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
             LocalDateTime ldt = LocalDateTime.parse(datetime,df);
 
