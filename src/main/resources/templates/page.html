@@ -135,6 +135,22 @@
             display: none;
         }
 
+        .input-title{
+            outline-style: none ;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 6px;
+            width: 300px;
+            font-size: 14px;
+            font-family: "Microsoft soft";
+        }
+        .input-title:focus{
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+        }
+
         @media screen and (max-width: 600px) {
             .topnav a:not(:first-child) {
                 display: none;
@@ -183,7 +199,7 @@
             <form method="post" th:action="@{/tinytxt}">
 
                 <label for="title">Title:</label>
-                <input type="text" id="title" name="title"><br><br>
+                <input type="text" id="title" name="title" class="input-title"><br><br>
                 <label for="tags">Hashtag:</label>
                 <div>
                     <select multiple id="tid" name="tid"
