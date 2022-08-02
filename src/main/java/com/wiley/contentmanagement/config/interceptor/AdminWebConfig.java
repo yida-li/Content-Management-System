@@ -10,8 +10,9 @@ public class AdminWebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new BandAInterceptor())
-                .addPathPatterns("/index")
-                .excludePathPatterns();
+                .addPathPatterns("/page","/tag","/manage")
+                .excludePathPatterns("/index","/");
+
 
     }
 }
