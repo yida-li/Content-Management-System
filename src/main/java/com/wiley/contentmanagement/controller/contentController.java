@@ -144,13 +144,13 @@ public class contentController {
             }
         }
 
-        return "redirect:/manage";
+        return "redirect:manage";
     }
 
     @GetMapping("manage/deleteBlog")
     public String deletePage(int aid) {
         articleService.deleteArticleById(aid);
-        return "redirect:/manage";
+        return "redirect:manage";
     }
 
     
@@ -161,7 +161,7 @@ public class contentController {
         return "redirect:manageBoss";
     }
     
-    @GetMapping("/manageBoss/approveBlog")
+    @GetMapping("manageBoss/approveBlog")
     public String approvePage(int aid) {
         articleService.approveArticle(aid);
         return "redirect:manageBoss";
