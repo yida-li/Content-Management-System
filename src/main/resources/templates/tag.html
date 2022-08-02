@@ -163,17 +163,20 @@
 
             <div class="topnav" id="myTopnav">
                 <a class="active" href="/">Home</a>
-                <a href="/page">Write Blog</a>
-                <a href="/manage">Blog Management</a>
-                <a href="/tag">Tags</a>
-                <a href="/login">Login/Signup</a>
-
-                <a href="/manageBoss">Approval</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i>
-                </a>
+                <div class="nav_admin" style="display: none">
+                    <a href="/page">Write Blog</a>
+                    <a href="/manage">Blog Management</a>
+                    <a href="/tag">Tags</a>
+                    <div class="nav_boss" style="display: none">
+                        <a href="/manageBoss">Approval</a>
+                    </div>
+                </div>
+                <div class="nav_login">
+                    <a href="/login" style="float: right">Login</a>
+                </div>
             </div>
-            <!-- Main Body of Page -->
+
+            <!--end of navigation-->
             <div class="row m-4 border border-dark">
                 <div class="col text-center m-3">
                     <!--                    start of table-->
