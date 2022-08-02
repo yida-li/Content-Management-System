@@ -22,12 +22,12 @@ public class loginController {
     @Autowired
     UserService uService;
 
-    @GetMapping("/login")
+    @GetMapping("login")
     public String getLogin(){
-        return "/login.html";
+        return "login.html";
     }
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public String postLogin(HttpServletRequest request, HttpServletResponse res, Model model){
         Enumeration<String> names = request.getParameterNames();
         HashMap<String,String> map = new HashMap<>();
@@ -57,16 +57,16 @@ public class loginController {
             session.setAttribute("user",result);
             session.setAttribute("role",result.getRole());
             session.setAttribute("loginmsg","login succeeded!");
-            return "redirect:/";
+            return "redirect:";
         }else{
             session.setAttribute("loginmsg","login failed!");
-            return "/login.html";
+            return "login.html";
         }
 
     }
 
-    @RequestMapping({"/404","/500"})
+    @RequestMapping({"404","500"})
     public String errorPage(){
-        return "/404.html";
+        return "404.html";
     }
 }

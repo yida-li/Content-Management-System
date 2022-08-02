@@ -38,7 +38,7 @@ public class ArticleController {
     @Autowired
     TagService tService;
 
-    @GetMapping({"index","/"})
+    @GetMapping({"index",""})
     public String index(Model model){
         HashMap<Integer, List<Tag>> atmap = new HashMap<>();
         List<Article> blogs = aService.getAllDisplayArticles();
@@ -54,13 +54,13 @@ public class ArticleController {
         return "index.html";
     }
 
-    @GetMapping("/blogPage")
+    @GetMapping("blogPage")
     public String getBlogPage(@RequestParam("aid") int aid,Model model){
         model.addAttribute("blog",aService.getArticleById(aid));
-        return "/blogDetail.html";
+        return "blogDetail.html";
     }
 
-    @GetMapping("/getArticlesByTag")
+    @GetMapping("getArticlesByTag")
     public ResponseEntity getArticlesByTag(Model model){
         List<Tag> tagList = tService.getAllTags();
         HashMap<Integer,List<Article>> articleMap = new HashMap<>();
@@ -77,7 +77,7 @@ public class ArticleController {
     
     
     
-    @PostMapping("/updateArticleTag")
+    @PostMapping("updateArticleTag")
     public ResponseEntity postChangeTag(HttpServletRequest req){
         Enumeration<String> names = req.getParameterNames();
         HashMap<String,String[]> map = new HashMap<>();

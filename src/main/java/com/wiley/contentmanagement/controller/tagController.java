@@ -15,38 +15,38 @@ public class tagController {
     @Autowired
     TagService tService;
 
-    @GetMapping("/getAllTags")
+    @GetMapping("getAllTags")
     public ResponseEntity getAllTags(Model model) {
         model.addAttribute("tags", tService.getAllTags());
         return ResponseEntity.ok().body(tService.getAllTags());
     }
 
-    @PostMapping("/addTag")
+    @PostMapping("addTag")
     public String addTag(String name, Model model) {
 
         Tag tag = new Tag();
         tag.setName(name);
         tService.addTag(tag);
         model.addAttribute("tags", tService.getAllTags());
-        return "redirect:/tag";
+        return "redirect:tag";
     }
 
-    @GetMapping("/editTag")
+    @GetMapping("editTag")
     public String editTag(int tid, Model model) {
         model.addAttribute("tag", tService.getTagById(tid));
         return "editTag";
     }
 
-    @PostMapping("/editTag")
+    @PostMapping("editTag")
     public String performEditTag(Tag tag) {
         tService.updateTag(tag);
-        return "redirect:/tag";
+        return "redirect:tag";
     }
 
-    @GetMapping("/deleteTag")
+    @GetMapping("deleteTag")
     public String deleteTag(int tid) {
         tService.deleteTagById(tid);
-        return "redirect:/tag";
+        return "redirect:tag";
     }
 
 }

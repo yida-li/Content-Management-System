@@ -40,13 +40,13 @@ public class contentController {
     @Autowired
     ArticleTagService atService;
 
-    @GetMapping("/page")
+    @GetMapping("page")
     public String page(Model model) {
         model.addAttribute("tags", tagService.getAllTags());
         return "page";
     }
 
-    @GetMapping("/manage")
+    @GetMapping("manage")
     public String manage(Model model) {
         HashMap<Integer, List<Tag>> atmap = new HashMap<>();
         List<Article> blogs = aService.getAllArticles();
@@ -63,7 +63,7 @@ public class contentController {
         return "manage";
     }
 
-    @GetMapping("/manageBoss")
+    @GetMapping("manageBoss")
     public String manageBoss(Model model) {
         HashMap<Integer, List<Tag>> atmap = new HashMap<>();
         List<Article> blogs = aService.getAllDrafts();
@@ -80,7 +80,7 @@ public class contentController {
         return "manageBoss";
     }
 
-    @GetMapping("/tag")
+    @GetMapping("tag")
     public String tag(Model model) {
         HashMap<Integer, List<Tag>> atmap = new HashMap<>();
         List<Article> blogs = aService.getAllArticles();
@@ -105,7 +105,7 @@ public class contentController {
         return "tag";
     }
 
-    @GetMapping("/manage/editBlog")
+    @GetMapping("manage/editBlog")
     public String editPage(int aid, Model model) {
         model.addAttribute("article", articleService.getArticleById(aid));
         model.addAttribute("tags", tagService.getAllTags());
@@ -147,7 +147,7 @@ public class contentController {
         return "redirect:/manage";
     }
 
-    @GetMapping("/manage/deleteBlog")
+    @GetMapping("manage/deleteBlog")
     public String deletePage(int aid) {
         articleService.deleteArticleById(aid);
         return "redirect:/manage";
@@ -155,20 +155,20 @@ public class contentController {
 
     
     
-    @GetMapping("/manageBoss/deleteBlog")
+    @GetMapping("manageBoss/deleteBlog")
     public String deleteBossPage(int aid) {
         articleService.deleteArticleById(aid);
-        return "redirect:/manageBoss";
+        return "redirect:manageBoss";
     }
     
     @GetMapping("/manageBoss/approveBlog")
     public String approvePage(int aid) {
         articleService.approveArticle(aid);
-        return "redirect:/manageBoss";
+        return "redirect:manageBoss";
     }
     
     
-    @PostMapping("/tinytxt")
+    @PostMapping("tinytxt")
     public String writeBlog(String title, String tinyContent, Integer[] tid) {
 
         //article objectr
@@ -189,7 +189,7 @@ public class contentController {
             }
         }
 
-        return "redirect:/";
+        return "redirect:";
     }
 
 }
