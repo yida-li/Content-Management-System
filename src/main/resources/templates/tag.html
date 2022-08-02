@@ -196,18 +196,12 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-info"><a href="#">Edit</a></button>
+                                    <button type="button" class="btn btn-outline-info"><a href="#" th:href="@{/editTag(tid=${tag.tid})}">Edit</a></button>
                                 </td>
                                 <td>
-                                    <form action="#" th:action="@{/deleteTag}" method="GET">
-                                        <div>
-                                            <div id="deleteTag">
 
-                                                <input type="text" name="${tag.tid}"/>
-                                                <button type="button" class="btn btn-outline-info"><a href="#">Delete</a></button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <button type="button" class="btn btn-outline-info"><a href="#" th:href="@{/deleteTag(tid=${tag.tid})}">Delete</a></button>
+
                                 </td>
                             </tr>
                         <tbody>

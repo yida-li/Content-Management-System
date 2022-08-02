@@ -2,16 +2,12 @@ package com.wiley.contentmanagement.controller;
 
 import com.wiley.contentmanagement.model.Tag;
 import com.wiley.contentmanagement.service.TagService;
-import java.util.Enumeration;
-import java.util.HashMap;
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class tagController {
@@ -35,31 +31,22 @@ public class tagController {
         return "redirect:/tag";
     }
 
+    @GetMapping("/editTag")
+    public String editTag(int tid, Model model) {
+        model.addAttribute("tag", tService.getTagById(tid));
+        return "editTag";
+    }
+
     @PostMapping("/editTag")
-    public ResponseEntity editTag(HttpServletRequest req,
-            @RequestParam("id") int id,
-            Model model) {
-
-        Enumeration<String> names = req.getParameterNames();
-        HashMap<String, String[]> map = new HashMap<>();
-        while (names.hasMoreElements()) {
-            String name = names.nextElement();
-            String[] values = req.getParameterValues(name);
-            if (values != null) {
-                map.put(name, values);
-            }
-        }
-
-        Tag tag = new Tag();
-        tag.setName(map.get("name")[0]);
-        tag.setTid(id);
+    public String performEditTag(Tag tag) {
         tService.updateTag(tag);
-        return ResponseEntity.ok().body(tag);
+        return "redirect:/tag";
     }
 
     @GetMapping("/deleteTag")
-    public void deleteTag(@RequestParam("id") int id) {
-        tService.deleteTagById(id);
+    public String deleteTag(int tid) {
+        tService.deleteTagById(tid);
+        return "redirect:/tag";
     }
 
 }
