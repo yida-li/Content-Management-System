@@ -11,6 +11,7 @@ import com.wiley.contentmanagement.service.ArticleService;
 import com.wiley.contentmanagement.service.ArticleTagService;
 import com.wiley.contentmanagement.service.TagService;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -114,7 +115,7 @@ public class contentController {
     }
 
     @PostMapping("/manage/editBlog")
-    public String performEdit(int aid, String title, String content, Integer[] tid) {
+    public String performEdit(int aid, String title, String content, Integer[] tid, String date, String time) {
         atService.deleteArticleTagByAid(aid);
 
         Article article = articleService.getArticleById(aid);
@@ -122,6 +123,12 @@ public class contentController {
         article.setContent(content);
         article.setUpdateTime(LocalDateTime.now());
         article.setDisplay(0);
+
+        String datetime = date+" "+time;
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime ldt = LocalDateTime.parse(datetime,df);
+
+        article.setExpireTime(ldt);
         articleService.updateArticle(article);
 
         if (tid != null) {

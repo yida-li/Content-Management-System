@@ -8,6 +8,8 @@ import com.wiley.contentmanagement.dao.ArticleDao;
 import com.wiley.contentmanagement.dao.ArticleTagDao;
 import com.wiley.contentmanagement.model.Article;
 import com.wiley.contentmanagement.model.ArticleTag;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +72,12 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> getAllDisplayArticles() {
         return articleDao.getAllArticles()
                 .stream()
-                .filter(a -> a.getDisplay() == 1)
+                .filter(a -> (
+                            (a.getDisplay() == 1)
+                            &&
+                            (a.getExpireTime() == null ? true : (a.getExpireTime().isAfter(LocalDateTime.now())))
+                        )
+                )
                 .collect(Collectors.toList());
     }
 

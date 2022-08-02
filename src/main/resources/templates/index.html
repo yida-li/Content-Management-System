@@ -178,17 +178,9 @@ background-image: linear-gradient(270deg, #ffffff 0%, #85FFBD 33%, #FFFB7D 66%, 
                     </div>
                     <div class="blog-time" th:text="'last update time : '+${blog.updateTime}"></div>
                 </div>
-                <div class="blog-content">2022-07-28 13:42:30.192  INFO 17288 --- [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-                    2022-07-28 13:42:30.355  INFO 17288 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-                    2022-07-28 13:42:30.388  INFO 17288 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-                    2022-07-28 13:42:30.401  INFO 17288 --- [  restartedMain] c.w.c.ContentmanagementApplication       : Started ContentmanagementApplication in 2.917 seconds (JVM running for 4.474)
-                    2022-07-28 13:42:37.898  INFO 17288 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-                    2022-07-28 13:42:37.898  INFO 17288 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-                    2022-07-28 13:42:37.898  INFO 17288 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-                    2022-07-28 13:42:37.949  INFO 17288 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-                    2022-07-28 13:42:38.123  INFO 17288 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.</div>
+                <div class="blog-content" th:utext="${blog.content}">content</div>
                 <div class="col-4">more... </div>
-<!--                <div class="blog-content" th:text="${blog.content}">content</div>-->
+
             </a>
         </div>
     </div>
